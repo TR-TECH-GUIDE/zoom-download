@@ -2,12 +2,21 @@
 var msg = { action: "loaded", data: null };
 chrome.runtime.sendMessage(msg);
 
+// If the extension is clicked, send back document content including the link
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
 	if (message.action == "clicked") {
-		console.log("Message received");
+    // Loop over all of the <script> elements
+    var scripts = document.getElementsByTagName("script");
+    for (var i = 0; i < scripts.length; i++) {
+      var text = scripts[i].text;
+      // Find the <script> with the viewMp4Url
+      if (text.search(/viewMp4Url/i) >= 1) {
+        // TODO: Fix to not just eval the the script
+        eval(text);
+        sendResponse(window.__data__);
+      }
+    }
 	}
-
-  sendResponse(Object.keys(window));
 
   return true;
 });
