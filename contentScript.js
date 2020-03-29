@@ -5,18 +5,21 @@ chrome.runtime.sendMessage(msg);
 // If the extension is clicked, send back document content including the link
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
 	if (message.action == "clicked") {
-    // Loop over all of the <script> elements -- kind of a janky hack
-    var scripts = document.getElementsByTagName("script");
-    for (var i = 0; i < scripts.length; i++) {
-      var text = scripts[i].text;
-      // Find the <script> with the viewMp4Url
-      if (text.search(/viewMp4Url/i) >= 1) {
-        // TODO: Fix to not just eval the the script
-        eval(text);
-        sendResponse(window.__data__);
-      }
-    }
+    var inject = "(" + function() {
+      var a = document.createElement("a");
+      a.appendChild(document.createTextNode("Right Click & Save As..."));
+      a.style = "display: block; margin: auto; margin-top: 25px; margin-bottom: 25px; min-width: 150px; max-width: 350px; padding: 15px; border: 3px solid limegreen; border-radius: 3px; background: black; color: limegreen; text-align: center; font-family: sans-serif; font-size: 1.5em; text-decoration: none;";
+      a.href = window.__data__.viewMp4Url;
+      a.download = window.__data__.topic;
+      document.body.insertBefore(a, document.body.childNodes[0]);
+    } + ")();";
+    var script = document.createElement("script");
+    script.textContent = inject;
+    (document.head||document.documentElement).appendChild(script);
+    script.remove();
+
 	}
 
+  sendResponse();
   return true;
 });

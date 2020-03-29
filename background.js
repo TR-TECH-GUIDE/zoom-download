@@ -20,14 +20,6 @@ chrome.pageAction.onClicked.addListener(function(tab) {
   console.log("User clicked the button! " + Date());
   // Send the content script a data request and download the video upon response
 	chrome.tabs.sendMessage(tab.id, { action: "clicked", data: null }, function (response) {
-    var url = response.viewMp4Url;
-    console.log(url);
-
-    chrome.downloads.download({
-      url: url,
-      headers: [ { name: "Referer", value: "http://zoom.us/" } ]
-    });
-
     return true;
 	});
 });
