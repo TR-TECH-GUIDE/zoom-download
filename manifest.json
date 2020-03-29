@@ -1,0 +1,7 @@
+{
+  "manifest_version": 2,
+  "name": "Zoom Video Downloader",
+  "version": "1.0",
+
+  "description": "Save recorded Zoom videos from links, whether or not there is an available 'download' button"
+}
