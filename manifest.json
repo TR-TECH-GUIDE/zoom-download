@@ -1,5 +1,6 @@
 {
   "manifest_version": 2,
+
   "name": "Zoom Video Downloader",
   "version": "1.0",
   "short_name": "Zoom Downloader",
@@ -12,6 +13,9 @@
     "persistent": false,
     "scripts": [ "background.js" ]
   },
+  "page_action": {
+    "default_title": "Download Zoom video"
+  },
 
   "content_scripts": [{
     "matches": [ "https://*.zoom.us/rec/play/*" ],
@@ -20,6 +24,9 @@
   }],
 
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "tabs",
+    "declarativeContent",
+    "https://*.zoom.us/rec/play/*"
   ]
 }
