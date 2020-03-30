@@ -9,6 +9,12 @@
   "author": "Jacob Strieb",
   "homepage_url": "http://jstrieb.github.io/projects/zoom-downloader/",
 
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+
   "page_action": {
     "default_title": "Download Zoom video"
   },
@@ -20,7 +26,6 @@
   }],
 
   "permissions": [
-    "activeTab",
-    "downloads"
+    "activeTab"
   ]
 }
