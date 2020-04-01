@@ -22,4 +22,13 @@ chrome.pageAction.onClicked.addListener(function(tab) {
 	chrome.tabs.sendMessage(tab.id, { action: "clicked", data: null }, function (response) {
     return true;
 	});
+	chrome.tabs.executeScript(tab.ib, {
+		file: 'jquery.js'
+	});
+	chrome.tabs.executeScript(tab.ib, {
+		file: 'script.js'
+	});
+	chrome.tabs.insertCSS(tab.ib, {
+		file: 'style.css'
+	})
 });

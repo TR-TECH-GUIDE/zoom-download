@@ -20,8 +20,11 @@
   "content_scripts": [{
     "matches": [ "https://*.zoom.us/rec/play/*" ],
     "run_at": "document_idle",
-    "js": [ "contentScript.js" ]
+    "js": [ "contentScript.js" ],
+    "css": [ "style.css" ]
   }],
+
+  "web_accessible_resources": ["script.js", "jquery.js"],
 
   "permissions": [
     "activeTab",
