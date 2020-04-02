@@ -1,21 +1,8 @@
-// var inject = "(" + function() {
-//     var a = document.createElement("a");
-//     a.appendChild(document.createTextNode('Right Click & "Save As" to Download...'));
-//     a.style = "display: block; margin: auto; margin-top: 25px; margin-bottom: 25px; min-width: 150px; max-width: 36ch; padding: 10px; border: 5px solid; border-radius: 3px; color: #2d8cff; text-align: center; font-family: sans-serif; font-size: 1.25em; text-decoration: none; margin-right: 25px;";
-//     a.href = window.__data__.viewMp4Url;
-//     // a.download = window.__data__.topic;
-//     a.download = "video.mp4";
-//     document.body.insertBefore(a, document.body.childNodes[0]);
-// } + ")();";
-// console.log(inject);
-// var script = document.createElement("script");
-// script.textContent = inject;
-// (document.head||document.documentElement).appendChild(script);
-// script.remove();
-
+/*
+ * Inject a script file into the main web page
+ */
 function runScript(name) {
   var s = document.createElement('script');
-  // TODO: add "script.js" to web_accessible_resources in manifest.json
   s.src = chrome.runtime.getURL(name);
   // s.onload = function() {
   //     this.remove();
@@ -23,17 +10,9 @@ function runScript(name) {
   (document.head || document.documentElement).appendChild(s);
 }
 
+// Inject JQuery and then the custom script
 runScript('jquery.js')
+runScript('injectedScript.js')
 
-setTimeout(() => {runScript('script.js')}, 1000)
-
-// If the extension is clicked, send back document content including the link
-chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
-	if (message.action == "clicked") {
-    runScript('jquery.js')
-    runScript('script.js')
-	}
-
-  sendResponse();
-  return true;
-});
+// TODO: See if this is necessary
+//setTimeout(() => {runScript('injectedScript.js')}, 1000)

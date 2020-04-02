@@ -1,6 +1,5 @@
 let URL = window.__data__.viewMp4Url
 $(document).ready(function() {
-
     $('.r-header-row').append(`
         <div id="btn">Download Meeting Video</div>
         <div class="modal-wrapper">

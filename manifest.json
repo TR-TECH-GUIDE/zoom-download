@@ -6,7 +6,7 @@
   "short_name": "Zoom Downloader",
 
   "description": "Save recorded Zoom videos from links, whether or not there is an available 'download' button",
-  "author": "Jacob Strieb",
+  "author": "Logan Snow & Jacob Strieb",
   "homepage_url": "http://jstrieb.github.io/projects/zoom-downloader/",
 
   "icons": {
@@ -26,7 +26,7 @@
     "css": [ "style.css" ]
   }],
 
-  "web_accessible_resources": ["script.js", "jquery.js"],
+  "web_accessible_resources": [ "injectedScript.js", "jquery.js" ],
 
   "permissions": [
     "activeTab"
