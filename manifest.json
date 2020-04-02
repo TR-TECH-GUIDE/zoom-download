@@ -5,7 +5,7 @@
   "version": "1.0",
   "short_name": "Zoom Downloader",
 
-  "description": "Save recorded Zoom videos from links, whether or not there is an available 'download' button",
+  "description": "Save recorded Zoom videos from online",
   "author": "Logan Snow & Jacob Strieb",
   "homepage_url": "http://jstrieb.github.io/projects/zoom-downloader/",
 
