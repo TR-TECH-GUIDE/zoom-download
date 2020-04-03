@@ -4,3 +4,6 @@
 
 # Ignore VSCode temporary files
 *.vscode
+
+# Ignore local "backup files" created by moving stuff around
+*.bak

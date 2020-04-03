@@ -1,5 +1,5 @@
 #btn {
-  background-color: rgb(39, 94, 212);
+  background-color: rgb(45, 140, 255);
   color: white;
   padding: 7px;
   border-radius: 5px;
@@ -48,7 +48,7 @@
 }
 
 .close-button {
-  cursor: pointer; 
+  cursor: pointer;
   position: absolute;
   right: 10px;
   font-size: 25px;
