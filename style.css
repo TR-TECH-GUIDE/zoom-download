@@ -25,7 +25,7 @@ body {
     background: rgba(240, 240, 240, 0.8);
     position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
     justify-content: center;
     align-items: center;
     height: 100%;
@@ -43,5 +43,13 @@ body {
     border-radius: 10px;
     padding: 20px;
     font-size: 20px;
+    position: relative;
   }
   
+  .close-button {
+    cursor: pointer; 
+    position: absolute;
+    right: 10px;
+    font-size: 25px;
+    top: 8px;
+  }
