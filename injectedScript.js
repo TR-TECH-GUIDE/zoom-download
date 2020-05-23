@@ -1,17 +1,16 @@
-let URL = window.__data__.viewMp4Url
+const URL = window.__data__.viewMp4Url;
+const fileSize = window.__data__.fileSize;
+const chats = window.__data__.chatlist;
+const topic = window.__data__.topic;
 
-function insertButton(){
-  if(!window.jQuery) {
-    setTimeout(insertButton, 100)
-  } else {
-    $(document).ready(function() {
-      // Remove the old download button, if it exists
-      $('.download').remove()
+function insertButton() {
+  // Remove the old download button, if it exists
+  document.querySelectorAll(".download").forEach((b) => b.remove());
 
-      // Add the download button to the page
-      // NOTE: Indentation reduced so it injects with proper spacing
-      $('.r-header-row').append(`
-<div id="btn"><i class="zm-icon-download mgr-xs"></i>Download Video</div>
+  // Add the download button to the page
+  // NOTE: Indentation reduced so it injects with proper spacing
+  document.querySelector(".r-header-row").insertAdjacentHTML("beforeend", `
+<div id="btn"><i class="zm-icon-download mgr-xs"></i>Download Video (${fileSize})</div>
 <div class="modal-wrapper">
   <div class="modal">
     <div class="close-button">&times;</div>
@@ -24,28 +23,34 @@ function insertButton(){
 </div>
 `);
 
-      // Display download instructions with valid download URL (in modal)
-      $("#btn").click(function() {
-        $(".modal-wrapper")
-          .css("display", "flex")
-          .hide()
-          .fadeIn();
-          $('#videoLink').attr('href', URL);
-          $('#videoLink').attr('download', window.__data__.topic);
-      });
-      $('.close-button').click(function() {
-        $('.modal-wrapper').fadeOut();
-      })
-      $(".modal-wrapper")
-        .click(function() {
-          $(this).fadeOut();
-        })
-        .children()
-        .click(function(e) {
-          return false;
-        });
-    });
-  }
+  const modalWrapper = document.querySelector(".modal-wrapper");
+
+  // Display download instructions with valid download URL (in modal)
+  document.querySelector("#btn").addEventListener("click", () => {
+    console.log(getComputedStyle(modalWrapper, "transition").opacity);
+    modalWrapper.style.display = "flex";
+    // TODO: Figure out why this ugly setTimeout hack is necessary
+    setTimeout(() => modalWrapper.style.opacity = 1, 10);
+
+    const videoLink = document.querySelector("#videoLink");
+    videoLink.href = URL;
+    videoLink.download = `${topic}.mp4`;
+  });
+
+  // Handle closing the modal
+  document.querySelector(".close-button").addEventListener("click", () => {
+    modalWrapper.style.opacity = 0;
+    setTimeout(() => modalWrapper.style.display = "none", 400);
+  });
+  modalWrapper.addEventListener("click", () => {
+    modalWrapper.style.opacity = 0;
+    setTimeout(() => modalWrapper.style.display = "none", 400);
+  });
 }
 
-insertButton()
+// Either add the button, or set it to be added when the document loads
+if (document.readyState == "complete" || document.readyState == "interactive") {
+  insertButton();
+} else {
+  document.body.addEventListener("load", insertButton);
+}

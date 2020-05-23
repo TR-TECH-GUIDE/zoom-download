@@ -7,6 +7,4 @@ function runScript(name) {
   (document.head || document.documentElement).appendChild(s);
 }
 
-// Inject jQuery and then the custom script
-runScript('jquery.js')
 runScript('injectedScript.js')
