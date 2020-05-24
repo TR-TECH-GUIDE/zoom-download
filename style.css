@@ -1,4 +1,4 @@
-#btn {
+.btn {
   background-color: rgb(45, 140, 255);
   color: white;
   padding: 7px;
@@ -10,9 +10,10 @@
   cursor: pointer;
   white-space: nowrap;
   font-size: 1.25em;
+  margin-left: 10px;
 }
 
-#btn:active {
+.btn:active {
   box-shadow: 0 0 3pt 2pt rgb(0, 140, 255);
 }
 
