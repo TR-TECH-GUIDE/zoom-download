@@ -26,6 +26,11 @@ or slower speeds to suit their needs. It likewise enables analyzing videos with
 automated transcription and eases reviewing material. Furthermore, students
 deserve access to course materials, even after completing a course.
 
+This project was a collaboration between [Logan Snow](https://logansnow.com/)
+([@lsnow2017](https://github.com/lsnow2017)) and
+[Jacob Strieb](https://jstrieb.github.io/)
+([@jstrieb](https://github.com/jstrieb)).
+
 
 
 ## Installation
