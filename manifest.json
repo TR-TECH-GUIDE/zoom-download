@@ -5,7 +5,7 @@
   "version": "1.1",
   "short_name": "Zoom Downloader",
 
-  "description": "Save recorded Zoom videos from online",
+  "description": "Download recorded Zoom videos, even if downloading is disabled.",
   "author": "Logan Snow & Jacob Strieb",
   "homepage_url": "http://github.com/jstrieb/zoom-downloader",
 
@@ -20,13 +20,21 @@
   },
 
   "content_scripts": [{
-    "matches": [ "https://*.zoom.us/rec/play/*" ],
+    "matches": [
+      "https://*.zoom.us/rec/play/*"
+    ],
     "run_at": "document_idle",
-    "js": [ "contentScript.js" ],
-    "css": [ "style.css" ]
+    "js": [
+      "contentScript.js"
+    ],
+    "css": [
+      "style.css"
+    ]
   }],
 
-  "web_accessible_resources": [ "injectedScript.js" ],
+  "web_accessible_resources": [
+    "injectedScript.js"
+  ],
 
   "permissions": [
     "activeTab"
