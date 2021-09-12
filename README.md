@@ -35,13 +35,7 @@ This project was a collaboration between [Logan Snow](https://logansnow.com/)
 
 ## Installation
 
-There is an unlisted Chrome extension uploaded to the Chrome Web Store
-available here:
-
-[Chrome Web Store
-Extension](https://chrome.google.com/webstore/detail/iaidofnocgbompkoameeimhfkcljabli/)
-
-Otherwise, clone the repository and enable [developer
+Clone the repository and enable [developer
 mode](https://developer.chrome.com/extensions/faq#faq-dev-01). Then point
 Chrome to the location of the cloned repository. This option is not preferable
 since developer mode in Chrome creates an annoying dialog every time the
